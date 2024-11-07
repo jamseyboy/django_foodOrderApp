@@ -1,0 +1,16 @@
+scripts:
+  server:
+    - cd src/foodOrderApp && python3 manage.py runserver 8001
+  makemigrations:
+    - cd src/foodOrderApp && python3 manage.py makemigrations
+  migrate:
+    - cd src/foodOrderApp && python3 manage.py migrate
+  shell:
+    - cd src/foodOrderApp && python3 manage.py shell
+  curl_auth:
+    curl -X POST -H "Content-Type:application/json" -d '{"username":"jameslalringsan",
+     "password":"Buonga"}' http://127.0.0.1:8001/api/token/pair
+  curl_protect:
+    curl -X GET -H "Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5ODI2OTM2LCJpYXQiOjE3Mjk4MjMzMzYsImp0aSI6IjZlNWUzZmFhMDZhMTQzMWZiM2E3MTdjNjYxOGExYTg3IiwidXNlcl9pZCI6MX0.cBn_IB1qerbvza5QgACZcSC7EYQ7y6Z1kR5kYfYuyKQ"  http://127.0.0.1:8001/api/me
+  createsuperuser:
+    - cd src/foodOrderApp && python3 manage.py createsuperuser 
