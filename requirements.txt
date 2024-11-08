@@ -4,4 +4,4 @@ django-cors-headers
 django-ninja-jwt[crypto]
 python-decouple
 rav
-guincorn
+gunicorn
