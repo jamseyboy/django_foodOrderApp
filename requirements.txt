@@ -5,3 +5,5 @@ django-ninja-jwt[crypto]
 python-decouple
 rav
 gunicorn
+dj-database-url
+psycopg[binary]
