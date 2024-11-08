@@ -41,7 +41,7 @@ COPY requirements.txt /requirements.txt
 COPY ./src /code
 
 # Install the Python project requirements
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -r /requirements.txt
 
 # database isn't available during build
 # run any other commands that do not need the database
