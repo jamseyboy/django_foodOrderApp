@@ -58,7 +58,6 @@ def get_orders_list(request):
 
 @router.post("create_orders")
 def create_customer_orders(request, payload:createOrdersSchema):
-    print(payload.dict())
     customer_info_from_db=get_object_or_404(customerModel, id = payload.customer_id)
     customer_order_data =orderModel.objects.create(
             order_status=payload.order_status,
@@ -70,17 +69,19 @@ def create_customer_orders(request, payload:createOrdersSchema):
 
 @router.post("create_order_item")
 def create_order_item(request, payload:createOrderItem):
+    print(payload.dict())
     order_info_from_db=get_object_or_404(orderModel, id = payload.order_id)
     order_info_from_db.order_status=payload.order_status
     order_info_from_db.save()
-    food_info_from_db=get_object_or_404(foodModel, id=payload.food_id)
-    order_item_data=orderItemModel.objects.create(
-        order_info=order_info_from_db,
-        food_info = food_info_from_db,
-        food_quantity  =payload.food_quantity,
-        total_amount = food_info_from_db.food_price * payload.food_quantity
+    for items in payload.items:
+        food_info_from_db=get_object_or_404(foodModel, id=items.food_id)
+        order_item_data=orderItemModel.objects.create(
+            order_info=order_info_from_db,
+            food_info = food_info_from_db,
+            food_quantity  =items.food_quantity,
+            total_amount = food_info_from_db.food_price * items.food_quantity
     )
-    return {"order_item_id": order_item_data.id}
+    return {"message:": "Success"}
 
 @router.post("update_order_status")
 def update_order_status(request, payload:updateOrderStatusSchema):
@@ -99,7 +100,7 @@ def get_todays_detail_order_list(request):
     order_detailsItem=[]
     for item_details in qs:
         db_value={
-            "id" : item_details.id,
+            "item_id" : item_details.id,
             "order_id": item_details.order_info.id,
             #"customer_id":item_details.order_info.customer_info.id,
             #"customer_name":item_details.order_info.customer_info.username,

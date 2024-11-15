@@ -1,6 +1,7 @@
 from datetime import datetime
 from ninja import Schema
-from typing import List
+from typing import List, Dict, Any
+from pydantic import BaseModel
 
 
 
@@ -41,11 +42,17 @@ class orderItemSchema(Schema):
    
     class Config:
         orm_mode=True
-    
+
+class foodSchema(Schema):
+    food_id:int
+    food_quantity:int
+
+
 class createOrderItem(Schema):
 
     order_id:int
-    food_id:int
-    food_quantity:int
     order_status:str
+    items:List[foodSchema]
+    class Config:
+        extra = "allow"  # Allows additional fields in the root schema as well
 
