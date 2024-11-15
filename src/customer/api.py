@@ -93,8 +93,8 @@ def update_order_status(request, payload:updateOrderStatusSchema):
 @router.get("todays_detail_order_list")
 def get_todays_detail_order_list(request):
 
-    #qs=orderItemModel.objects.filter(timestamp__gte = date.today()) #.select_related('order_info').order_by('order_info__customer_info__username')
-    qs=orderItemModel.objects.all()
+    qs=orderItemModel.objects.filter(timestamp__gte = date.today()) #.select_related('order_info').order_by('order_info__customer_info__username')
+    #qs=orderItemModel.objects.all()
     order_details_by_customer= defaultdict(list)
 
     order_detailsItem=[]
