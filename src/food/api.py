@@ -25,5 +25,5 @@ def create_food(request, payload:createFood):
 
 @router.get("todays_food")
 def get_todays_food(request):
-    qs= foodModel.objects.filter(timestamp__gte = timezone.now().today())
+    qs= foodModel.objects.filter(timestamp__gte = date.today())
     return list(qs.values())
