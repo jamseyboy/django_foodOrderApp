@@ -1,6 +1,6 @@
 # 🍔 Food Order App — Backend (Django + Django Ninja)
 
-A REST API for a restaurant food-ordering system, built with **Django 5** and **Django Ninja**. It manages food items, customers, orders, and order items, and exposes a JWT-secured JSON API consumed by the [Next.js frontend](../nextjs_foodOrderApp-main).
+A REST API for a restaurant food-ordering system, built with **Django 5** and **Django Ninja**. It manages food items, customers, orders, and order items, and exposes a JWT-secured JSON API consumed by the [Next.js frontend](https://github.com/jamseyboy/nextjs_foodOrderApp.git).
 
 ---
 
