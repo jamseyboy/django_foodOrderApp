@@ -194,7 +194,7 @@ The Dockerfile builds a Python 3.12 image, installs dependencies, and at **conta
 
 ## Deployment
 
-This project is pre-configured for **Railway** (`railway.toml` + `Dockerfile`). See **[`../RAILWAY_DEPLOYMENT_GUIDE.md`]([../RAILWAY_DEPLOYMENT_GUIDE.md](https://github.com/jamseyboy/django_foodOrderApp/blob/main/RAILWAY_DEPLOYMENT_GUIDE.md))** for the full step-by-step guide covering both this backend and the Next.js frontend.
+This project is pre-configured for **Railway** (`railway.toml` + `Dockerfile`). See **[`../RAILWAY_DEPLOYMENT_GUIDE.md`](https://github.com/jamseyboy/django_foodOrderApp/blob/main/RAILWAY_DEPLOYMENT_GUIDE.md)** for the full step-by-step guide covering both this backend and the Next.js frontend.
 
 ---
 
